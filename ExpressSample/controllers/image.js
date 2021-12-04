@@ -9,17 +9,17 @@
 // comment)
 
 
-// module.exports = {
-    module.exports.index = function(req, res) {
+module.exports = {
+    index: function(req, res) {
         res.send(`The image:index controller ${req.params.image_id}`); 
     },
-    module.exports.create = function(req, res) {
+    create: function(req, res) {
         res.send(`The image:create POST controller`); 
     },
-    module.exports.like = function(req, res) {
+    mlike: function(req, res) {
         res.send('The image:like POST controller'); 
     }, 
-    module.exports.comment = function(req, res) {
+    comment: function(req, res) {
         res.send('The image:comment POST controller'); 
     }
-// }; 
+}; 

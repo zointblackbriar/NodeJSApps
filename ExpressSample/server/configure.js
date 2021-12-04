@@ -12,6 +12,14 @@ var path = require('path'),
         app.use(morgan('dev')); 
         app.use(bodyParser.urlencoded({'extended': true})); 
         app.use(bodyParser.json()); 
+        //app engine
+        app.engine('handlebars', exphbs.create({
+            defaultLayout: 'main', 
+            layoutDir: `${app.get('views')}/layouts`,
+            partialsDir: [`${app.get('views')}/partials`]
+        }).engine);
+        app.set('view engine', 'handlebars'); 
+
         app.use(methodOverride()); 
         app.use(cookieParser('some-secre-value')); 
         routes(app); //you can respond to requests such as GET, POST, PUT, and UPDATE. Since you are using the Express router as one of the last middleware. 
